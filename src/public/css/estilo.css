@@ -1,0 +1,32 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: bisque;
+}
+
+.menu {
+    width: 100%;
+    height: 125px;
+    background-color: lavenderblush;
+    color: darkslategray;
+}
+
+.conteudo {
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+    background-color: lightslategrey;
+    font-weight: bold;
+}
+
+.menu a, .menu a:visited {
+    color: inherit;
+}
+
+.menu a:hover {
+    color: rgb(155, 173, 192);
+}

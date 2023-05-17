@@ -1,0 +1,8 @@
+# inicia o servidor
+php artisan serve
+
+# cria migração
+php artisan make:migration create_cidade_table
+
+# recria as tabelas
+php artisan migrate:refresh

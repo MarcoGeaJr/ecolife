@@ -1,0 +1,7 @@
+Autenticação:
+    - Formulário para criar conta
+    - Tela de login
+
+Orçamentos
+    - Solicitar orçamento
+    - Visualizar um orçamento(Aprovar/Rejeitar)

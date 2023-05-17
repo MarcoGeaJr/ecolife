@@ -1,0 +1,8 @@
+Orçamentos:
+    - TipoEmprendimento (Casa, Edifício Residencial, Edifício Comercial, Loteamento Residenciais, Condomínios fechados)
+    - Situação (Solicitado, Orçado, Aprovado, Rejeitado, Finalizado, Cancelado)
+    - Listagem de orçamentos
+    - Visualizar um orçamento
+    - Orçar solicitação
+    - Finalizar orçamento
+    - Cancelar orçamento
