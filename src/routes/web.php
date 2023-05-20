@@ -19,3 +19,9 @@ Route::get('/home', function(){
 Route::get('/painel', function(){
     return view('layouts.admin');
 })->middleware('auth');
+
+Route::group(["prefix" => '/usuarios'], function(){
+    Route::get('/', function(){
+        return view('auth.register');
+    });
+});

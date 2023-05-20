@@ -1,6 +1,6 @@
 @extends('layouts.adminbase')
 
-@section('content')
+@section('content-base')
 <div class="container col-md-6">
     <div class="row justify-content-center py-5">
         <div class="col-md-6">

@@ -1,6 +1,6 @@
 @extends('layouts.adminbase')
 
-@section('content')
+@section('content-base')
     <!-- ============================================================== -->
     <!-- Left Sidebar - style you can find in sidebar.scss  -->
     <!-- ============================================================== -->
@@ -12,52 +12,45 @@
                 <ul id="sidebarnav">
                     <!-- User Profile-->
                     <li class="sidebar-item pt-2">
-                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="dashboard.html"
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/painel"
                             aria-expanded="false">
                             <i class="far fa-clock" aria-hidden="true"></i>
-                            <span class="hide-menu">Dashboard</span>
+                            <span class="hide-menu">Painel</span>
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="profile.html"
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/usuarios"
                             aria-expanded="false">
                             <i class="fa fa-user" aria-hidden="true"></i>
-                            <span class="hide-menu">Profile</span>
+                            <span class="hide-menu">Usuários</span>
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="basic-table.html"
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/clientes"
                             aria-expanded="false">
                             <i class="fa fa-table" aria-hidden="true"></i>
-                            <span class="hide-menu">Basic Table</span>
+                            <span class="hide-menu">Clientes</span>
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="fontawesome.html"
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/orcamentos"
                             aria-expanded="false">
                             <i class="fa fa-font" aria-hidden="true"></i>
-                            <span class="hide-menu">Icon</span>
+                            <span class="hide-menu">Orçamentos</span>
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="map-google.html"
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/obras"
                             aria-expanded="false">
                             <i class="fa fa-globe" aria-hidden="true"></i>
-                            <span class="hide-menu">Google Map</span>
+                            <span class="hide-menu">Obras</span>
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="blank.html"
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/landing/alterar"
                             aria-expanded="false">
                             <i class="fa fa-columns" aria-hidden="true"></i>
-                            <span class="hide-menu">Blank Page</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="404.html"
-                            aria-expanded="false">
-                            <i class="fa fa-info-circle" aria-hidden="true"></i>
-                            <span class="hide-menu">Error 404</span>
+                            <span class="hide-menu">Configurações</span>
                         </a>
                     </li>
                 </ul>

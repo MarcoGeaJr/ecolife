@@ -48,7 +48,7 @@
             <nav class="navbar top-navbar navbar-expand-md navbar-dark">
                 <div class="navbar-header ">
                     <a class="navbar-brand" href="/painel">
-                        EcoLife - Painel
+                        EcoLife
                     </a>
                     <a class="nav-toggler waves-effect waves-light text-dark d-block d-md-none"
                         href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
@@ -100,7 +100,7 @@
         <!-- ============================================================== -->
         <!-- Content of page -->
         <!-- ============================================================== -->
-        @yield('content')
+        @yield('content-base')
         <!-- ============================================================== -->
         <!-- End Content of page -->
         <!-- ============================================================== -->
