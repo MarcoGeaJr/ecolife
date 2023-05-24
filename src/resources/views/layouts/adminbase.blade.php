@@ -13,7 +13,7 @@
     <title>Admin - Ecolife</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/ample-admin-lite/" />
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="plugins/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('plugins/images/favicon.png') }}">
     <!-- Custom CSS -->
    <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -70,9 +70,9 @@
                             <!-- Search -->
                             <!-- ============================================================== -->
                             <li class=" in">
-                                <form action="/admin/orcamentos" method="GET" role="search" class="app-search d-none d-md-block me-3">
-                                    <input type="text" name="search" placeholder="Search..." class="form-control mt-0">
-                                    <a href="" class="active">
+                                <form id="p-search" action="/orcamentos" method="GET" role="search" class="app-search d-none d-md-block me-3">
+                                    <input type="text" name="search" placeholder="Pesquisa..." class="form-control mt-0">
+                                    <a href="" class="active" onclick="event.preventDefault(); document.getElementById('p-search').submit();">
                                         <i class="fa fa-search"></i>
                                     </a>
                                 </form>
@@ -81,9 +81,9 @@
                             <!-- User profile and search -->
                             <!-- ============================================================== -->
                             <li>
-                                <a class="profile-pic" href="#">
-                                    <img src="plugins/images/users/varun.jpg" alt="user-img" width="36"
-                                        class="img-circle"><span class="text-white font-medium">{{ Auth::user()->name }}</span></a>
+                                <span class="profile-pic" href="#">
+                                    <img src="{{ asset('plugins/images/users/varun.jpg') }}" alt="user-img" width="36"
+                                        class="img-circle"><span class="text-white font-medium">{{ Auth::user()->name }}</span></span>
                             </li>
                             <!-- ============================================================== -->
                             <!-- User profile and search -->

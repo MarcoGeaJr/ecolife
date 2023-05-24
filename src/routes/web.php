@@ -2,9 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\ProdutoController;
-use App\Http\Controllers\ClienteController;
-use App\Http\Controllers\CidadeController;
+use App\Http\Controllers\UsuarioController;
 
 Auth::routes();
 
@@ -21,7 +19,9 @@ Route::get('/painel', function(){
 })->middleware('auth');
 
 Route::group(["prefix" => '/usuarios'], function(){
-    Route::get('/', function(){
-        return view('auth.register');
-    });
+    Route::get('/', 'UsuarioController@index');
+    Route::get('/novo', 'UsuarioController@novo');
+
+    Route::post('/cadastrar', 'UsuarioController@cadastrar');
+    Route::get('/excluir/{id}', 'UsuarioController@excluir');
 });
