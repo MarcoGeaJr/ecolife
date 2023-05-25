@@ -3,11 +3,13 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\LandingController;
+use App\Http\Controllers\ClienteController;
 
 Auth::routes();
 
 Route::get('/', function(){
-    return view('/landing');
+    return redirect('/landing');
 });
 
 Route::get('/home', function(){
@@ -24,4 +26,22 @@ Route::group(["prefix" => '/usuarios'], function(){
 
     Route::post('/cadastrar', 'UsuarioController@cadastrar');
     Route::get('/excluir/{id}', 'UsuarioController@excluir');
+});
+
+Route::group(["prefix" => '/landing'], function(){
+    Route::get('/', 'LandingController@index');
+
+    Route::get('/editar', 'LandingController@editar')->middleware('auth');
+    Route::post('/alterar', 'LandingController@alterar')->middleware('auth');
+});
+
+Route::group(["prefix" => '/clientes'], function(){
+    Route::get('/', 'ClienteController@index');
+    Route::get('/novo', 'ClienteController@novo');
+    Route::get('/editar/{id}', 'ClienteController@editar');
+
+    Route::post('/cadastrar', 'ClienteController@cadastrar');
+    Route::post('/alterar', 'ClienteController@alterar');
+
+    Route::get('/excluir/{id}', 'ClienteController@excluir');
 });

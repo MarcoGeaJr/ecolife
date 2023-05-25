@@ -10,15 +10,15 @@ class LandingController extends Controller
     public function index(){
         $landing = Landing::first();
 
-        return view('landing', [
+        return view('landing.index', [
             "landing" => $landing
         ]);
     }
 
-    public function alterar_landing(){
+    public function editar(){
         $landing = Landing::first();
 
-        return view('landing/alterar', [
+        return view('landing.alterar', [
             "landing" => $landing
         ]);
     }
@@ -26,11 +26,19 @@ class LandingController extends Controller
     public function alterar(Request $dados){
         $landing = Landing::first();
 
-        $landing->imgBackground = $dados->input("imgBackground");
-        $landing->imgVertical1 = $dados->input("imgVertical1");
-        $landing->imgVertical2 = $dados->input("imgVertical2");
+        // if ($landing->imgBackground != $dados->input("imgBackground")){
+        //     $landing->imgBackground = $dados->input("imgBackground");
+        // }        
+
+        // if ($landing->imgVertical1 != $dados->input("imgVertical1")){
+        //     $landing->imgVertical1 = $dados->input("imgVertical1");
+        // }
+        // $landing->imgVertical2 = $dados->input("imgVertical2");
+
         $landing->quemSomos = $dados->input("quemSomos");
 
-        return redirect('/panel');
+        $landing->update();
+
+        return redirect('/painel');
     }
 }

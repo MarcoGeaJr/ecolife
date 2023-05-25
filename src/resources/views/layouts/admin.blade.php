@@ -14,7 +14,7 @@
                     <li class="sidebar-item pt-2">
                         <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/painel"
                             aria-expanded="false">
-                            <i class="far fa-clock" aria-hidden="true"></i>
+                            <i class="fas fa-chart-line" aria-hidden="true"></i>
                             <span class="hide-menu">Painel</span>
                         </a>
                     </li>
@@ -28,28 +28,35 @@
                     <li class="sidebar-item">
                         <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/clientes"
                             aria-expanded="false">
-                            <i class="fa fa-table" aria-hidden="true"></i>
+                            <i class="fas fa-users" aria-hidden="true"></i>
                             <span class="hide-menu">Clientes</span>
                         </a>
                     </li>
                     <li class="sidebar-item">
                         <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/orcamentos"
                             aria-expanded="false">
-                            <i class="fa fa-font" aria-hidden="true"></i>
+                            <i class="fas fa-calculator" aria-hidden="true"></i>
                             <span class="hide-menu">Orçamentos</span>
                         </a>
                     </li>
                     <li class="sidebar-item">
                         <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/obras"
                             aria-expanded="false">
-                            <i class="fa fa-globe" aria-hidden="true"></i>
+                            <i class="fas fa-home" aria-hidden="true"></i>
                             <span class="hide-menu">Obras</span>
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/landing/alterar"
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/comentarios"
                             aria-expanded="false">
-                            <i class="fa fa-columns" aria-hidden="true"></i>
+                            <i class="fa fa-comments" aria-hidden="true"></i>
+                            <span class="hide-menu">Comentários</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/landing/editar"
+                            aria-expanded="false">
+                            <i class="fas fa-cog" aria-hidden="true"></i>
                             <span class="hide-menu">Configurações</span>
                         </a>
                     </li>
