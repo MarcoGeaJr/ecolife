@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 18-Maio-2023 às 01:07
+-- Generation Time: 25-Maio-2023 às 02:54
 -- Versão do servidor: 10.1.28-MariaDB
 -- PHP Version: 5.6.32
 
@@ -71,6 +71,13 @@ CREATE TABLE `landing` (
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Extraindo dados da tabela `landing`
+--
+
+INSERT INTO `landing` (`id`, `imgBackground`, `imgVertical1`, `imgVertical2`, `quemSomos`, `created_at`, `updated_at`) VALUES
+(1, 'images/background.jpg', 'images/vertical1.jpg', 'images/vertical1.jpg', 'teste de quem somos com uma frase bem legal e interessante para vender mais', '2023-05-24 00:00:00', '2023-05-25 00:12:26');
+
 -- --------------------------------------------------------
 
 --
@@ -132,6 +139,7 @@ CREATE TABLE `orcamento` (
   `regiao` int(11) NOT NULL,
   `valor_orcamento` decimal(14,2) NOT NULL,
   `status` int(11) NOT NULL,
+  `palavra_segura` varchar(50) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -183,6 +191,14 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Extraindo dados da tabela `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'admin', 'admin@email.com', '$2y$10$JfdQdQwRScwcRVrsdTqxlejLfjEr8a0wGzcYYVxxe5DiaMrl0SKLS', 'ozL1RSOLz7c1PQ7QYXcC1zg8TxYk89DFJYuOM6GmUhrzFUzW61UclAxYhLoC', '2023-05-20 17:42:54', '2023-05-20 17:42:54'),
+(3, 'marco', 'marcogea.co@gmail.com', '$2y$10$UzRupQcSXXz0eeDBxqj8Lu.sY9j4edLdaAeV0/TK5F7jn6jZhsorK', 'jDAGntAiu73dg1zCvesGX5krkwDqR3cuwPrNFfxH8Mo3i8OsFngEIldq73Vd', '2023-05-20 20:10:31', '2023-05-20 20:10:31');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -198,6 +214,12 @@ ALTER TABLE `cliente`
 ALTER TABLE `comentario`
   ADD PRIMARY KEY (`id`),
   ADD KEY `obra_id` (`obra_id`);
+
+--
+-- Indexes for table `landing`
+--
+ALTER TABLE `landing`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `migrations`
@@ -250,16 +272,46 @@ ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `cliente`
+--
+ALTER TABLE `cliente`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `orcamento`
+--
+ALTER TABLE `orcamento`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `orcamento_item`
 --
 ALTER TABLE `orcamento_item`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `obra`
+--
+ALTER TABLE `obra`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `comentario`
+--
+ALTER TABLE `comentario`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `landing`
+--
+ALTER TABLE `landing`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
