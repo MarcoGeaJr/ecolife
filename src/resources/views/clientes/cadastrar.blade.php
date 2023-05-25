@@ -11,6 +11,29 @@
 
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="/clientes/cadastrar">
+                        <div class="row">
+                            <div class="form-group col-md-8">
+                                <label for="name" class="col-md-4 control-label">Nome/Razão Social</label>
+
+                                <input id="name" type="text" class="form-control" name="name" required autofocus>
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label for="cpfCnpj" class="col-md-4 control-label">CPF/CNPJ</label>
+
+                                <input id="cpfCnpj" type="text" class="form-control" name="cpfCnpj" required autofocus>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <input type="text" name="email" />
+                            <input type="text" name="apelidoFantasia" />
+                        </div>
+
+                        <div class="row">
+                            <input type="text" name="telefone" />
+                            <input type="text" name="cep" />
+                        </div>
 
                         <div class="form-group pt-4">
                             <div class="col-md-12 text-center">
