@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\ComentarioController;
 
 Auth::routes();
 
@@ -44,4 +45,12 @@ Route::group(["prefix" => '/clientes'], function(){
     Route::post('/alterar', 'ClienteController@alterar');
 
     Route::get('/excluir/{id}', 'ClienteController@excluir');
+});
+
+Route::group(["prefix" => '/comentarios'], function(){
+    Route::get('/', 'ComentarioController@index')->middleware('auth');
+
+    Route::post('/cadastrar', 'ComentarioController@cadastrar');
+
+    Route::get('/excluir/{id}', 'ComentarioController@excluir')->middleware('auth');
 });
