@@ -39,8 +39,8 @@
                                         <td><?= $cliente["cpfCnpj"] ?></td>
                                         <td><?= $cliente["telefone"] ?></td>
                                         @if (Auth::user()->id == 1)
-                                            <td class="text-center"><a class="btn btn-sm btn-warning w-50" href="/clientes/editar/<?= $cliente["id"] ?>">Alterar</a></th>
-                                            <td class="text-center"><a class="btn btn-sm btn-danger w-50" href="/clientes/excluir/<?= $cliente["id"] ?>">Excluir</a></th>
+                                            <td class="text-center"><a class="btn btn-sm btn-warning w-100" href="/clientes/editar/<?= $cliente["id"] ?>">Alterar</a></th>
+                                            <td class="text-center"><a class="btn btn-sm btn-danger w-100" href="/clientes/excluir/<?= $cliente["id"] ?>">Excluir</a></th>
                                         @else
                                             <td></td>
                                             <td></td>
