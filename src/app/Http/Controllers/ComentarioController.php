@@ -10,7 +10,7 @@ class ComentarioController extends Controller
     public function index(Request $dados){
         $comentarios = [];
         $search = $dados->input('search');
-        if (empty($search)){
+        if (!empty($search)){
             $comentarios = Comentario::join('obra', 'comentario.obra_id', '=', 'obra.id')
                                         ->select('comentario.*', 'obra.nome_empreendimento as obra')
                                         ->where("comentario.nome", "LIKE", "%{$search}%")
@@ -47,6 +47,6 @@ class ComentarioController extends Controller
         $comentario = Comentario::find($id);
         $comentario->delete();
 
-        return redirect("/obras/editar?id=" . $comentario["obra_id"]);
+        return redirect("/comentarios");
     }
 }

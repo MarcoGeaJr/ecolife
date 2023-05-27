@@ -52,5 +52,5 @@ Route::group(["prefix" => '/comentarios'], function(){
 
     Route::post('/cadastrar', 'ComentarioController@cadastrar');
 
-    Route::get('/excluir/{id}', 'ComentarioController@excluir')->middleware('auth');
+    Route::get('/excluir/{id}', 'ComentarioController@remover')->middleware('auth');
 });
