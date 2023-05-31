@@ -6,6 +6,7 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ComentarioController;
+use App\Http\Controllers\OrcamentoController;
 
 Auth::routes();
 
@@ -53,4 +54,8 @@ Route::group(["prefix" => '/comentarios'], function(){
     Route::post('/cadastrar', 'ComentarioController@cadastrar');
 
     Route::get('/excluir/{id}', 'ComentarioController@remover')->middleware('auth');
+});
+
+Route::group(["prefix" => '/orcamentos'], function(){
+    Route::get('/', 'OrcamentoController@index')->middleware('auth');
 });
