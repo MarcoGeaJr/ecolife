@@ -7,6 +7,7 @@ use App\Models\Orcamento;
 use App\Models\Cliente;
 use App\Models\Enums\SituacaoOrcamentoEnum;
 use App\Models\Enums\RegiaoEnum;
+use App\Models\Enums\TipoEmpreendimentoEnum;
 
 class OrcamentoController extends Controller
 {
@@ -58,6 +59,17 @@ class OrcamentoController extends Controller
         if ($situacao == SituacaoOrcamentoEnum::CANCELADO) return FALSE;
 
         return TRUE;
+    }
+
+    public function novo(){
+        $clientes = Cliente::select('cliente.id as id', 'cliente.nomeRazao as nomeRazao')
+                            ->get();
+
+        return view('orcamentos.novo', [
+            "clientes" => $clientes,
+            "tp_empreendimentos" => TipoEmpreendimentoEnum::obterTiposEmpeendimentos(),
+            "regioes" => RegiaoEnum::obterRegioes()
+        ]);
     }
 
     public function cancelar($id) {

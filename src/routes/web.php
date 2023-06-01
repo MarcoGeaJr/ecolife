@@ -58,6 +58,7 @@ Route::group(["prefix" => '/comentarios'], function(){
 
 Route::group(["prefix" => '/orcamentos'], function(){
     Route::get('/', 'OrcamentoController@index')->middleware('auth');
+    Route::get('/novo', 'OrcamentoController@novo')->middleware('auth');
 
     Route::get('/cancelar/{id}', 'OrcamentoController@cancelar')->middleware('auth');
 });

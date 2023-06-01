@@ -131,6 +131,7 @@
     <!--Custom JavaScript -->
     <!-- <script src="js/custom.js"></script> -->
     <script src="{{ asset('js/custom.js') }}"></script>
+
 </body>
 
 </html>
