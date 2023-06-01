@@ -45,10 +45,10 @@
                                         <td><?= $orcamento["valor"] ?></td>
                                         @if (Auth::user()->id == 1)
                                             <?php foreach($orcamento["acao"] as $descricao => $rota) { ?>
-                                                <td class="text-center"><a class="btn btn-sm btn-warning w-100" href="/orcamento/<?= $rota ?>/<?= $orcamento["id"] ?>"><?= $descricao ?></a></th>
+                                                <td class="text-center"><a class="btn btn-sm btn-warning w-100" href="/orcamentos/<?= $rota ?>/<?= $orcamento["id"] ?>"><?= $descricao ?></a></th>
                                                 
                                                 <?php if ($orcamento["cancelar"]) { ?>
-                                                    <td class="text-center"><a class="btn btn-sm btn-danger w-100" href="/orcamento/cancelar/<?= $orcamento["id"] ?>">Cancelar</a></th>
+                                                    <td class="text-center"><a class="btn btn-sm btn-danger w-100" href="/orcamentos/cancelar/<?= $orcamento["id"] ?>">Cancelar</a></th>
                                                 <?php } else { ?>
                                                     <td></td>
                                                 <?php } ?>

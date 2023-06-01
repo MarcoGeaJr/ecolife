@@ -59,4 +59,14 @@ class OrcamentoController extends Controller
 
         return TRUE;
     }
+
+    public function cancelar($id) {
+        $orcamento = Orcamento::find($id);
+
+        $orcamento["status"] = SituacaoOrcamentoEnum::CANCELADO;
+
+        $orcamento->update();
+
+        return redirect('/orcamentos');
+    }
 }
