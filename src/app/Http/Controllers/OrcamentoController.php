@@ -123,6 +123,32 @@ class OrcamentoController extends Controller
         return redirect('/orcamentos');
     }
 
+    public function orcar($id){
+        $orcamento = Orcamento::find($id);
+        $cliente = Cliente::find($orcamento->cliente_id);
+
+        $orcamento->cliente = $cliente->nomeRazao;
+        $orcamento->valor_total = number_format($orcamento->valor_total, 2, ',', '.');
+        $orcamento->regiao = RegiaoEnum::obterDescricao($orcamento->regiao);
+        $orcamento->status = SituacaoOrcamentoEnum::obterDescricao($orcamento->status);
+        $orcamento->empreendimento = TipoEmpreendimentoEnum::obterDescricao($orcamento->tipo_empreendimento);
+
+        return view('orcamentos.orcar', [
+            "orcamento" => $orcamento,
+            "itens" => []
+        ]);
+    }
+
+    public function orcado(Request $dados){
+        $orcamento = Orcamento::find($dados->input('id'));
+
+        $orcamento->status = SituacaoOrcamentoEnum::ORCADO;
+
+        $orcamento->update();
+
+        return redirect('/orcamentos');
+    }
+
     public function cancelar($id) {
         $orcamento = Orcamento::find($id);
 

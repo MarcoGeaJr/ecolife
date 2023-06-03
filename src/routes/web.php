@@ -63,5 +63,8 @@ Route::group(["prefix" => '/orcamentos'], function(){
     Route::post('/cadastrar', 'OrcamentoController@cadastrar')->middleware('auth');
     Route::post('/solicitar', 'OrcamentoController@solicitar');
 
+    Route::get('/orcar/{id}', 'OrcamentoController@orcar')->middleware('auth');
+    Route::post('/orcado', 'OrcamentoController@orcado')->middleware('auth');
+
     Route::get('/cancelar/{id}', 'OrcamentoController@cancelar')->middleware('auth');
 });
