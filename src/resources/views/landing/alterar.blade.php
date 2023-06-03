@@ -10,7 +10,7 @@
                 </div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="/landing/alterar">
+                    <form method="POST" action="/landing/alterar">
                         <div class="form-group">
                             <label for="quemSomos">Quem somos</label>
                             <textarea class="form-control p-2" id="quemSomos" rows="3" name="quemSomos"><?= $landing["quemSomos"] ?></textarea>

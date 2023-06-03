@@ -24,11 +24,18 @@ class OrcamentoItemController extends Controller
     {
         $item = new OrcamentoItens;
 
+        $item->orcamento_id = $dados->input('orcamento_id');
+        $item->descricao_item = $dados->input('descricao_item');
+        $item->observacao_item = " " .$dados->input('observacao_item');
+        $item->quantidade = $dados->input('quantidade');
+        $item->valor_unitario = $dados->input('valor_unitario');
+        $item->valor_total = $item->quantidade * $item->valor_unitario;
 
+        $item->save();
 
-        altualizar_valor_orcamento($item->orcamento_id);
+        $this->altualizar_valor_orcamento($item->orcamento_id);
 
-        return redirect('/orcamentos/orcar/{id}');
+        return redirect('/orcamentos/orcar/' . $item->orcamento_id);
     }
 
     public function editar($id){
@@ -43,11 +50,19 @@ class OrcamentoItemController extends Controller
     {
         $item = OrcamentoItens::find($dados->input('id'));
 
+        $item->orcamento_id = $item->orcamento_id;
 
+        $item->descricao_item = $dados->input('descricao_item');
+        $item->observacao_item = " " .$dados->input('observacao_item');
+        $item->quantidade = $dados->input('quantidade');
+        $item->valor_unitario = $dados->input('valor_unitario');
+        $item->valor_total = $item->quantidade * $item->valor_unitario;
 
-        altualizar_valor_orcamento($item->orcamento_id);
+        $item->update();
 
-        return redirect('/orcamentos/orcar/{id}');
+        $this->altualizar_valor_orcamento($item->orcamento_id);
+
+        return redirect('/orcamentos/orcar/' . $item->orcamento_id);
     }
 
     public function remover($id)
@@ -56,20 +71,20 @@ class OrcamentoItemController extends Controller
 
         $item->delete();
 
-        altualizar_valor_orcamento($item->orcamento_id);
+        $this->altualizar_valor_orcamento($item->orcamento_id);
 
         return redirect('/orcamentos/orcar/' . $item->orcamento_id);
     }
 
     private function altualizar_valor_orcamento($id){
         $orcamento = Orcamento::find($id);
-        $orcamento->valor_total = 0;
+        $orcamento->valor_orcamento = 0;
 
         //obter itens
-        $itens = obter_itens($id);
+        $itens = $this->obter_itens($id);
 
         foreach($itens as $item){
-            $orcamento->valor_total += $item->valor_total;
+            $orcamento->valor_orcamento += $item->valor_total;
         }
 
         $orcamento->update();

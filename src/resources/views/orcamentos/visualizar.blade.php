@@ -85,19 +85,15 @@
                                         <th class="border-top-0">Descricao</th>
                                         <th class="border-top-0">Quantidade</th>
                                         <th class="border-top-0">Valor</th>
-                                        <th></th>
-                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php foreach($itens as $item) { ?>
                                         <tr>
                                             <td><?= $item["id"] ?></td>
-                                            <td><?= $item["nome_cliente"] ?></td>
+                                            <td><?= $item["descricao_item"] ?></td>
                                             <td><?= $item["quantidade"] ?></td>
                                             <td><?= $item["valor_total"] ?></td>
-                                            <td class="text-center"><a class="btn btn-sm btn-warning w-100" href="/orcamentoItens/editar/<?= $item["id"] ?>">Editar</a></th>
-                                            <td class="text-center"><a class="btn btn-sm btn-danger w-100" href="/orcamentoItens/remover/<?= $item["id"] ?>">Remover</a></th>
                                         </tr>
                                     <?php } ?>
                                 </tbody>

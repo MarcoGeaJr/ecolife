@@ -7,6 +7,7 @@ use App\Http\Controllers\LandingController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ComentarioController;
 use App\Http\Controllers\OrcamentoController;
+use App\Http\Controllers\OrcamentoItemController;
 
 Auth::routes();
 
@@ -58,10 +59,10 @@ Route::group(["prefix" => '/comentarios'], function(){
 
 Route::group(["prefix" => '/orcamentos'], function(){
     Route::get('/', 'OrcamentoController@index')->middleware('auth');
-    Route::get('/novo', 'OrcamentoController@novo')->middleware('auth');
     Route::get('/visualizar/{id}', 'OrcamentoController@visualizar')->middleware('auth');
     Route::get('/obter/{id}', 'OrcamentoController@obter_aprovar');
-
+    
+    Route::get('/novo', 'OrcamentoController@novo')->middleware('auth');
     Route::post('/cadastrar', 'OrcamentoController@cadastrar')->middleware('auth');
     Route::post('/solicitar', 'OrcamentoController@solicitar');
 
@@ -74,4 +75,13 @@ Route::group(["prefix" => '/orcamentos'], function(){
     Route::post('/finalizar', 'OrcamentoController@finalizar')->middleware('auth');
 
     Route::get('/cancelar/{id}', 'OrcamentoController@cancelar')->middleware('auth');
+});
+
+Route::group(["prefix" => '/orcamentoitens'], function(){
+    Route::get('/novo/{id}', 'OrcamentoItemController@novo');
+    Route::get('/editar/{id}', 'OrcamentoItemController@editar');
+
+    Route::post('/cadastrar', 'OrcamentoItemController@cadastrar');
+    Route::post('/alterar', 'OrcamentoItemController@alterar');
+    Route::get('/remover/{id}', 'OrcamentoItemController@remover');
 });

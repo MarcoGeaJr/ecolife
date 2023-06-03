@@ -33,7 +33,7 @@ class OrcamentoController extends Controller
         }
 
         foreach($orcamentos as $orcamento){
-            $orcamento["valor"] = "R$ " . number_format($orcamento["valor"], 2, ',', '.');
+            $orcamento["valor"] = "R$ " . number_format($orcamento["valor_orcamento"], 2, ',', '.');
             $orcamento["acao"] = $this->getAcao($orcamento["status"]);
             $orcamento["cancelar"] = $this->podeCancelar($orcamento["status"]);
             $orcamento["regiao"] = RegiaoEnum::obterDescricao($orcamento["regiao"]);
@@ -130,7 +130,7 @@ class OrcamentoController extends Controller
         $cliente = Cliente::find($orcamento->cliente_id);
 
         $orcamento->cliente = $cliente->nomeRazao;
-        $orcamento->valor_total = number_format($orcamento->valor_total, 2, ',', '.');
+        $orcamento->valor_total = number_format($orcamento->valor_orcamento, 2, ',', '.');
         $orcamento->regiao = RegiaoEnum::obterDescricao($orcamento->regiao);
         $orcamento->status = SituacaoOrcamentoEnum::obterDescricao($orcamento->status);
         $orcamento->empreendimento = TipoEmpreendimentoEnum::obterDescricao($orcamento->tipo_empreendimento);
@@ -139,6 +139,10 @@ class OrcamentoController extends Controller
                                 ->where('orcamento_id', '=', $id)
                                 ->orderBy('id')
                                 ->get();
+
+        foreach($itens as $item){
+            $item["valor_total"] = "R$ " . number_format($item["valor_total"], 2, ',', '.');
+        }
 
         return [
             "orcamento" => $orcamento,

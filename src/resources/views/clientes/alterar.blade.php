@@ -10,7 +10,7 @@
                 </div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="/clientes/alterar">
+                    <form method="POST" action="/clientes/alterar">
                         <input type="hidden" name="id" value="<?= $cliente["id"] ?>" />
                         <div class="row">
                             <div class="form-group col-md-8">

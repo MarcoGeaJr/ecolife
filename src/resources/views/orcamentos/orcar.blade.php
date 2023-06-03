@@ -8,10 +8,9 @@
                 <div class="panel-heading mb-5">
                     <h1>Orçamento #<?= $orcamento['id'] ?></h1>
                 </div>
-                
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="/orcamentos/orcado"></div>
+                    <form method="POST" action="/orcamentos/orcado">
                         <input type="hidden" class="form-control" name="id" value="<?= $orcamento['id'] ?>">
                         
                         <div class="row">
@@ -75,9 +74,17 @@
                             @endif
                         </div>
 
-                        <hr/>
-                        <div>
-                            <h2>Itens</h2>
+                        <div class="mt-5">
+                            <div class="row">
+                                <div class="col-md-10 my-auto">
+                                    <h1 class="my-auto">Itens</h1>
+                                </div>
+                                
+                                <div class="col-md-2 my-auto">
+                                    <a class="btn btn-sm btn-success w-100" href="/orcamentoitens/novo/<?= $orcamento['id'] ?>">Novo</a>
+                                </div>
+                            </div>
+                            <hr/>
                             <div class="table-responsive">
                                 <table class="table text-nowrap">
                                     <thead>
@@ -94,11 +101,11 @@
                                         <?php foreach($itens as $item) { ?>
                                             <tr>
                                                 <td><?= $item["id"] ?></td>
-                                                <td><?= $item["nome_cliente"] ?></td>
+                                                <td><?= $item["descricao_item"] ?></td>
                                                 <td><?= $item["quantidade"] ?></td>
                                                 <td><?= $item["valor_total"] ?></td>
-                                                <td class="text-center"><a class="btn btn-sm btn-warning w-100" href="/orcamentoItens/editar/<?= $item["id"] ?>">Editar</a></th>
-                                                <td class="text-center"><a class="btn btn-sm btn-danger w-100" href="/orcamentoItens/remover/<?= $item["id"] ?>">Remover</a></th>
+                                                <td class="text-center"><a class="btn btn-sm btn-warning w-100" href="/orcamentoitens/editar/<?= $item["id"] ?>">Editar</a></th>
+                                                <td class="text-center"><a class="btn btn-sm btn-danger w-100" href="/orcamentoitens/remover/<?= $item["id"] ?>">Remover</a></th>
                                             </tr>
                                         <?php } ?>
                                     </tbody>

@@ -10,7 +10,7 @@
                 </div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="/clientes/cadastrar">
+                    <form method="POST" action="/clientes/cadastrar">
                         <div class="row">
                             <div class="form-group col-md-8">
                                 <label for="name" class="col-md-4 control-label">Nome/Razão Social</label>
