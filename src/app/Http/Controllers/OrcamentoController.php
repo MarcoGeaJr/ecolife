@@ -72,6 +72,57 @@ class OrcamentoController extends Controller
         ]);
     }
 
+    public function cadastrar(Request $dados){
+        $orcamento = new Orcamento;
+
+        $orcamento->cliente_id = $dados->input('cliente');
+        $orcamento->tipo_empreendimento = $dados->input('tipo_empreendimento');
+        $orcamento->cep = $dados->input('cep');
+        $orcamento->cidade = $dados->input('cidade');
+        $orcamento->logradouro = $dados->input('logradouro');
+        $orcamento->numero = $dados->input('numero');
+        $orcamento->regiao = $dados->input('regiao');
+        $orcamento->tamanho_terreno = $dados->input('tamanho');
+        $orcamento->palavra_segura = $dados->input('palavra_segura');
+        $orcamento->valor_orcamento = 0;
+        $orcamento->status = SituacaoOrcamentoEnum::SOLICITADO;
+
+        $orcamento->save();
+
+        return redirect('/orcamentos');
+    }
+
+    public function solicitar(Request $dados){
+        $cliente = new Cliente;
+
+        $cliente->nomeRazao = $dados->input('nomeRazao');
+        $cliente->apelidoFantasia = $dados->input('apelidoFantasia');
+        $cliente->cpfCnpj = $dados->input('cpfCnpj');
+        $cliente->email = $dados->input('email');
+        $cliente->telefone = $dados->input('telefone');
+        $cliente->cep = $dados->input('cep');
+
+        $cliente->save();
+        
+        $orcamento = new Orcamento;
+
+        $orcamento->cliente_id = $cliente->id;
+        $orcamento->tipo_empreendimento = $dados->input('tipo_empreendimento');
+        $orcamento->cep = $dados->input('cep');
+        $orcamento->cidade = $dados->input('cidade');
+        $orcamento->logradouro = $dados->input('logradouro');
+        $orcamento->numero = $dados->input('numero');
+        $orcamento->regiao = $dados->input('regiao');
+        $orcamento->tamanho_terreno = $dados->input('tamanho');
+        $orcamento->palavra_segura = $dados->input('palavra_segura');
+        $orcamento->valor_orcamento = 0;
+        $orcamento->status = SituacaoOrcamentoEnum::SOLICITADO;
+
+        $orcamento->save();
+
+        return redirect('/orcamentos');
+    }
+
     public function cancelar($id) {
         $orcamento = Orcamento::find($id);
 

@@ -76,13 +76,11 @@
                                 <input id="tamanho" type="number" class="form-control" name="tamanho" required step=0.01 min=0.1 value=0.1>
                             </div>
 
-                            @if (Auth::user()->id == 1)
-                                <div class="form-group col-md-6">
-                                    <label for="palavra_segura" class="col-md-5 control-label">Palavra segura</label>
+                            <div class="form-group col-md-6">
+                                <label for="palavra_segura" class="col-md-5 control-label">Palavra segura</label>
 
-                                    <input id="palavra_segura" type="text" class="form-control" name="palavra_segura" required maxlength=50>
-                                </div>
-                            @endif
+                                <input id="palavra_segura" type="text" class="form-control" name="palavra_segura" required maxlength=50>
+                            </div>
                         </div>
 
                         <div class="form-group pt-4">
