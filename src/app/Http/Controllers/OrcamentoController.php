@@ -47,6 +47,7 @@ class OrcamentoController extends Controller
     private function getAcao($situacao) {
         switch($situacao){
             case SituacaoOrcamentoEnum::SOLICITADO:
+            case SituacaoOrcamentoEnum::REJEITADO:
                 return ["Orçar" => "orcar"];
             case SituacaoOrcamentoEnum::APROVADO:
                 return ["Finalizar" => "finalizar"];
@@ -146,6 +147,40 @@ class OrcamentoController extends Controller
 
         $orcamento->update();
 
+        // enviar o e-mail para o cliente
+
+        return redirect('/orcamentos');
+    }
+
+    public function aprovar(Request $dados){
+        $orcamento = Orcamento::find($dados->input('id'));
+
+        $orcamento->status = SituacaoOrcamentoEnum::APROVADO;
+
+        $orcamento->update();
+
+        return redirect('/orcamentos');
+    }
+
+    public function rejeitar(Request $dados){
+        $orcamento = Orcamento::find($dados->input('id'));
+
+        $orcamento->status = SituacaoOrcamentoEnum::REJEITADO;
+
+        $orcamento->update();
+
+        return redirect('/orcamentos');
+    }
+
+    public function finalizar(Request $dados){
+        $orcamento = Orcamento::find($dados->input('id'));
+        $orcamento->status = SituacaoOrcamentoEnum::FINALZIADO;
+        $orcamento->update();
+
+        // Cadastrar obra
+
+        // enviar e-mail para o cliente
+
         return redirect('/orcamentos');
     }
 
@@ -155,6 +190,8 @@ class OrcamentoController extends Controller
         $orcamento["status"] = SituacaoOrcamentoEnum::CANCELADO;
 
         $orcamento->update();
+
+        // enviar e-mail para o cliente
 
         return redirect('/orcamentos');
     }
