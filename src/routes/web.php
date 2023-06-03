@@ -59,12 +59,19 @@ Route::group(["prefix" => '/comentarios'], function(){
 Route::group(["prefix" => '/orcamentos'], function(){
     Route::get('/', 'OrcamentoController@index')->middleware('auth');
     Route::get('/novo', 'OrcamentoController@novo')->middleware('auth');
+    Route::get('/visualizar/{id}', 'OrcamentoController@visualizar')->middleware('auth');
+    Route::get('/obter/{id}', 'OrcamentoController@obter_aprovar');
 
     Route::post('/cadastrar', 'OrcamentoController@cadastrar')->middleware('auth');
     Route::post('/solicitar', 'OrcamentoController@solicitar');
 
     Route::get('/orcar/{id}', 'OrcamentoController@orcar')->middleware('auth');
     Route::post('/orcado', 'OrcamentoController@orcado')->middleware('auth');
+
+    Route::post('/aprovar', 'OrcamentoController@aprovar');
+    Route::post('/rejeitar', 'OrcamentoController@rejeitar');
+
+    Route::post('/finalizar', 'OrcamentoController@finalizar')->middleware('auth');
 
     Route::get('/cancelar/{id}', 'OrcamentoController@cancelar')->middleware('auth');
 });

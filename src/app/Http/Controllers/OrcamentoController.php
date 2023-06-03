@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Orcamento;
+use App\Models\OrcamentoItens;
 use App\Models\Cliente;
 use App\Models\Enums\SituacaoOrcamentoEnum;
 use App\Models\Enums\RegiaoEnum;
@@ -124,7 +125,7 @@ class OrcamentoController extends Controller
         return redirect('/orcamentos');
     }
 
-    public function orcar($id){
+    private function obter($id){
         $orcamento = Orcamento::find($id);
         $cliente = Cliente::find($orcamento->cliente_id);
 
@@ -134,10 +135,27 @@ class OrcamentoController extends Controller
         $orcamento->status = SituacaoOrcamentoEnum::obterDescricao($orcamento->status);
         $orcamento->empreendimento = TipoEmpreendimentoEnum::obterDescricao($orcamento->tipo_empreendimento);
 
-        return view('orcamentos.orcar', [
+        $itens = OrcamentoItens::query()
+                                ->where('orcamento_id', '=', $id)
+                                ->orderBy('id')
+                                ->get();
+
+        return [
             "orcamento" => $orcamento,
-            "itens" => []
-        ]);
+            "itens" => $itens
+        ];
+    }
+
+    public function obter_aprovar($id){
+        return view('orcamentos.aprovar', $this->obter($id));
+    }
+
+    public function orcar($id){
+        return view('orcamentos.orcar', $this->obter($id));
+    }
+
+    public function visualizar($id){
+        return view('orcamentos.visualizar', $this->obter($id));
     }
 
     public function orcado(Request $dados){
