@@ -231,7 +231,7 @@ class OrcamentoController extends Controller
         $obra->link_gmaps = "";
         $obra->imgHorizontal = $dados->input('imgHorizontal');
         $obra->imgVertical1 = $dados->input('imgVertical1');
-        $obra->imgVertical2 = "";
+        $obra->imgVertical2 = $dados->input('imgVertical2');
 
         $obra->save();
 

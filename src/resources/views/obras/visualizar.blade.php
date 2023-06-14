@@ -32,6 +32,7 @@
         <div class="row">
             <img  width="250" src="<?= $obra['imgHorizontal'] ?>" alt="">
             <img  width="250" src="<?= $obra['imgVertical1'] ?>" alt="">
+            <img  width="250" src="<?= $obra['imgVertical2'] ?>" alt="">
         </div>
 
       </div>
