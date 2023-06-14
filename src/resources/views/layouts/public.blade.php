@@ -33,7 +33,7 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="/landing">Home</a></li>
           <li><a class="nav-link scrollto" href="#about">Sobre nós</a></li>
           <li><a class="nav-link scrollto" href="#services">Obras</a></li>
           <li><a class="nav-link scrollto" href="#contact">Faça seu orçamento</a></li>

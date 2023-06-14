@@ -39,7 +39,7 @@ class ComentarioController extends Controller
 
         $comentario->save();
 
-        return redirect("/obras?id=" . $comentario->obra_id);
+        return redirect("/obras/visualizar/" . $comentario->obra_id);
     }
 
     public function remover($id)

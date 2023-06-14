@@ -38,9 +38,11 @@
           <?php foreach($obras as $obra) { ?>
             <div class="col-lg-4 col-md-6" data-aos="zoom-in" style="cursor:pointer;">
               <div class="box">
-                <div class="icon"><a href=""><i class="bi bi-briefcase"></i></a></div>
+                <a href="/obras/visualizar/<?= $obra['id'] ?>">
+                <div class="icon"><i class="bi bi-briefcase"></i></div>
                 <h4 class="title"><?= $obra["nome_empreendimento"] ?></h4>
                 <img  width="250" src="<?= $obra['imgHorizontal'] ?>" alt="">
+              </a>
               </div>
           </div>
           <?php } ?>

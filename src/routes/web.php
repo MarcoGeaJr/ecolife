@@ -90,4 +90,6 @@ Route::group(["prefix" => '/orcamentoitens'], function(){
 
 Route::group(["prefix" => '/obras'], function(){
     Route::get('/', 'ObraController@index');
+
+    Route::get('/visualizar/{id}', 'ObraController@visualizar');
 });
