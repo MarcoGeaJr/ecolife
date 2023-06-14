@@ -70,8 +70,8 @@ Route::group(["prefix" => '/orcamentos'], function(){
     Route::get('/orcar/{id}', 'OrcamentoController@orcar')->middleware('auth');
     Route::post('/orcado', 'OrcamentoController@orcado')->middleware('auth');
 
-    Route::post('/aprovar', 'OrcamentoController@aprovar');
-    Route::post('/rejeitar', 'OrcamentoController@rejeitar');
+    Route::get('/aprovar/{id}', 'OrcamentoController@aprovar');
+    Route::get('/rejeitar/{id}', 'OrcamentoController@rejeitar');
 
     Route::post('/finalizado', 'OrcamentoController@finalizado')->middleware('auth');
     Route::get('/finalizar/{id}', 'OrcamentoController@finalizar')->middleware('auth');

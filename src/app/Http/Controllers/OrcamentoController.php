@@ -145,9 +145,17 @@ class OrcamentoController extends Controller
             $item["valor_total"] = "R$ " . number_format($item["valor_total"], 2, ',', '.');
         }
 
+        if ($orcamento->status == "Orçado"){
+            $aprovar = 1;
+        }
+        else {
+            $aprovar = 0;
+        }
+
         return [
             "orcamento" => $orcamento,
-            "itens" => $itens
+            "itens" => $itens,
+            "aprovar" =>  $aprovar
         ];
     }
 
@@ -175,8 +183,8 @@ class OrcamentoController extends Controller
         return redirect('/orcamentos');
     }
 
-    public function aprovar(Request $dados){
-        $orcamento = Orcamento::find($dados->input('id'));
+    public function aprovar($id){
+        $orcamento = Orcamento::find($id);
 
         $orcamento->status = SituacaoOrcamentoEnum::APROVADO;
 
@@ -185,8 +193,8 @@ class OrcamentoController extends Controller
         return redirect('/orcamentos');
     }
 
-    public function rejeitar(Request $dados){
-        $orcamento = Orcamento::find($dados->input('id'));
+    public function rejeitar($id){
+        $orcamento = Orcamento::find($id);
 
         $orcamento->status = SituacaoOrcamentoEnum::REJEITADO;
 

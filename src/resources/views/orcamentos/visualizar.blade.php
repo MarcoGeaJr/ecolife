@@ -60,7 +60,7 @@
                         </div>
 
                         <div class="form-group col-md-3">
-                            <label for="tamanho" class="col-md-4 control-label">Tamanho (m²)</label>
+                            <label for="tamanho" class="col-md-5 control-label">Tamanho (m²)</label>
 
                             <input id="tamanho" type="number" class="form-control" name="tamanho" value="<?= $orcamento['tamanho_terreno'] ?>" readonly />
                         </div>
@@ -104,6 +104,10 @@
                     <div class="form-group pt-4">
                         <div class="col-md-12 text-center">
                             <a style="width: 20%;" class="btn btn-sm btn-outline-secondary mx-1" href="/orcamentos">Voltar</a>
+                            <?php if ($aprovar == 1) { ?>
+                                <a style="width: 20%;" class="btn btn-sm btn-outline-success mx-1" href="/orcamentos/aprovar/<?= $orcamento['id'] ?>">Aprovar</a>
+                                <a style="width: 20%;" class="btn btn-sm btn-outline-danger mx-1" href="/orcamentos/rejeitar/<?= $orcamento['id'] ?>">Rejeitar</a>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
