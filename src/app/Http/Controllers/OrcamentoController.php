@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Orcamento;
 use App\Models\OrcamentoItens;
 use App\Models\Cliente;
+use App\Models\Obra;
 use App\Models\Enums\SituacaoOrcamentoEnum;
 use App\Models\Enums\RegiaoEnum;
 use App\Models\Enums\TipoEmpreendimentoEnum;
@@ -122,7 +123,7 @@ class OrcamentoController extends Controller
 
         $orcamento->save();
 
-        return redirect('/orcamentos');
+        return redirect('/');
     }
 
     private function obter($id){
@@ -194,12 +195,37 @@ class OrcamentoController extends Controller
         return redirect('/orcamentos');
     }
 
-    public function finalizar(Request $dados){
-        $orcamento = Orcamento::find($dados->input('id'));
-        $orcamento->status = SituacaoOrcamentoEnum::FINALZIADO;
+    public function finalizar($id){
+        $orcamento = Orcamento::find($id);
+
+        return view('orcamentos.finalizar', [
+            "orcamento" => $orcamento
+        ]);
+    }
+
+    public function finalizado(Request $dados){
+        $orcamento = Orcamento::find($dados->input('orcamento_id'));
+        $orcamento->status = SituacaoOrcamentoEnum::FINALIZADO;
         $orcamento->update();
 
         // Cadastrar obra
+        $obra = new Obra;
+
+        $obra->orcamento_id = $orcamento->id;
+        $obra->nome_empreendimento = $dados->input('nome_empreendimento');
+        $obra->cep = $orcamento->cep;
+        $obra->cidade = $orcamento->cidade;
+        $obra->logradouro = $orcamento->logradouro;
+        $obra->numero = $orcamento->numero;
+        $obra->data_entrega = $dados->input('data_entrega');
+
+        // resto mokado
+        $obra->link_gmaps = "";
+        $obra->imgHorizontal = $dados->input('imgHorizontal');
+        $obra->imgVertical1 = "";
+        $obra->imgVertical2 = "";
+
+        $obra->save();
 
         // enviar e-mail para o cliente
 

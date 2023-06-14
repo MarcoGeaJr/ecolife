@@ -4,14 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Landing;
+use App\Models\Obra;
+use App\Models\Enums\RegiaoEnum;
+use App\Models\Enums\TipoEmpreendimentoEnum;
 
 class LandingController extends Controller
 {
     public function index(){
         $landing = Landing::first();
+        $obras = Obra::all();
 
         return view('landing.index', [
-            "landing" => $landing
+            "landing" => $landing,
+            "obras" => $obras,
+            "tp_empreendimentos" => TipoEmpreendimentoEnum::obterTiposEmpeendimentos(),
+            "regioes" => RegiaoEnum::obterRegioes()
         ]);
     }
 

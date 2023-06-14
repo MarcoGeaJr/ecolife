@@ -8,6 +8,7 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ComentarioController;
 use App\Http\Controllers\OrcamentoController;
 use App\Http\Controllers\OrcamentoItemController;
+use App\Http\Controllers\ObraController;
 
 Auth::routes();
 
@@ -72,7 +73,8 @@ Route::group(["prefix" => '/orcamentos'], function(){
     Route::post('/aprovar', 'OrcamentoController@aprovar');
     Route::post('/rejeitar', 'OrcamentoController@rejeitar');
 
-    Route::post('/finalizar', 'OrcamentoController@finalizar')->middleware('auth');
+    Route::post('/finalizado', 'OrcamentoController@finalizado')->middleware('auth');
+    Route::get('/finalizar/{id}', 'OrcamentoController@finalizar')->middleware('auth');
 
     Route::get('/cancelar/{id}', 'OrcamentoController@cancelar')->middleware('auth');
 });
@@ -84,4 +86,8 @@ Route::group(["prefix" => '/orcamentoitens'], function(){
     Route::post('/cadastrar', 'OrcamentoItemController@cadastrar');
     Route::post('/alterar', 'OrcamentoItemController@alterar');
     Route::get('/remover/{id}', 'OrcamentoItemController@remover');
+});
+
+Route::group(["prefix" => '/obras'], function(){
+    Route::get('/', 'ObraController@index');
 });
