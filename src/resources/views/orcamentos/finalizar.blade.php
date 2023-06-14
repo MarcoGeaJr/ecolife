@@ -27,10 +27,16 @@
                         </div>
 
                         <div class="row">
-                            <div class="form-group col">
-                                    <label for="imagem" class="col-md-4 control-label">Imagem</label>
+                            <div class="form-group col-md-6">
+                                    <label for="imagem1" class="col-md-4 control-label">Imagem 1</label>
 
-                                    <input id="imagem" type="text" class="form-control" name="imgHorizontal" required maxlength=250>
+                                    <input id="imagem1" type="text" class="form-control" name="imgHorizontal" required maxlength=250>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                    <label for="imagem2" class="col-md-4 control-label">Imagem 2</label>
+
+                                    <input id="imagem2" type="text" class="form-control" name="imgVertical1" required maxlength=250>
                             </div>
                         </div>
 

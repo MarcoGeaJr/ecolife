@@ -31,6 +31,7 @@
         </div>
         <div class="row">
             <img  width="250" src="<?= $obra['imgHorizontal'] ?>" alt="">
+            <img  width="250" src="<?= $obra['imgVertical1'] ?>" alt="">
         </div>
 
       </div>
@@ -46,7 +47,7 @@
                       <div class="form-group col-md-8">
                           <label for="name" class="col-md-4 control-label">Nome</label>
 
-                          <input id="name" type="text" class="form-control" name="nome" required autofocus minlength=3>
+                          <input id="name" type="text" class="form-control" name="nome" required minlength=3>
                       </div>
                   </div>
 

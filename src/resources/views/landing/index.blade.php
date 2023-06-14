@@ -78,7 +78,7 @@
                       <div class="form-group col-md-8">
                           <label for="name" class="col-md-4 control-label">Nome/Razão Social</label>
 
-                          <input id="name" type="text" class="form-control" name="nomeRazao" required autofocus minlength=3>
+                          <input id="name" type="text" class="form-control" name="nomeRazao" required minlength=3>
                       </div>
 
                       <div class="form-group col-md-4">

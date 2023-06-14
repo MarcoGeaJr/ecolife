@@ -230,7 +230,7 @@ class OrcamentoController extends Controller
         // resto mokado
         $obra->link_gmaps = "";
         $obra->imgHorizontal = $dados->input('imgHorizontal');
-        $obra->imgVertical1 = "";
+        $obra->imgVertical1 = $dados->input('imgVertical1');
         $obra->imgVertical2 = "";
 
         $obra->save();
