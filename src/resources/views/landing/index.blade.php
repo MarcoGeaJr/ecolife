@@ -1,6 +1,22 @@
 @extends('layouts.public')
 
 @section('content')
+<header id="header" class="fixed-top d-flex align-items-center header-transparent">
+    <div class="container d-flex justify-content-between align-items-center">
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="#about">Sobre nós</a></li>
+          <li><a class="nav-link scrollto" href="#services">Obras</a></li>
+          <li><a class="nav-link scrollto" href="#contact">Faça seu orçamento</a></li>
+          <li><a class="nav-link scrollto" href="/painel">Acesse o painel</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+    </div>
+  </header><!-- End Header -->
+
   <!-- ======= Hero Section ======= -->
   <section id="hero">
     <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">
