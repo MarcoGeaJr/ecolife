@@ -8,11 +8,6 @@ use App\Models\Comentario;
 
 class ObraController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     public function index()
     {
         $obras = Obra::all()->toArray();
